@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: black;
+            margin: 0px;
+            padding:0px;
+            justify-content: center;
+            display: flex;
+        }
+        .div1{
+            display: inline;
+            margin-top:70px;
+        }
+        .div2{
+            padding:20px;
+            background-color:aliceblue;
+            width:auto;
+            border: solid 1.2px lightskyblue;
+            justify-content:center;
+            display: block;
+            margin-top:px;
+            border-radius: 15px;
+        }
+        .div2 form input{
+            padding:5px;
+            margin: 15px;
+            border: solid 1.2px lightskyblue;
+            border-radius: 5px;
+            width: 200px;
+        }
+        .div2 form label{
+            font-size: 15px;
+            color:black;
+            margin: 15px;
+        }
+        .s1{
+            font-size: 15px;
+            width:210px;
+            background-color:lime;
+            border: solid 1.2px lime;
+            color: white;
+            border-radius: 5px;
+        }
+        a{
+            margin-left: 70px;
+            text-decoration: none;
+        }
+        .canva{
+             width:300px;
+             height: 100px;
+            height:auto; 
+            position: fixed;
+            top: 10px;
+            left:10px;
+        }
+        .canva2{
+            width:300px;
+             height: 100px;
+            height:auto; 
+            position: fixed;
+            top: 30px;
+            left:520px;
+        }
+    </style>
+</head>
+<body>
+    <div class="div1">
+    <canvas class="canv" id="canva2"></canvas>
+    <div class="div2">
+    <form class="form1" id="form1">
+        <label for="text">Code apogee :</label><br/>
+        <input class="ss"type="text" name="codeappogee" id="codeapogee" placeholder="code apogee"/><br/>
+        <label for="text">Mot de pass :</label><br/>
+        <input type="password" name="motpass" id="motpass" placeholder="mot de pass"/><br/>
+        <input class="s1" type="submit" name="submit" value="se connecter"/>
+       </form>
+       <a href="signUp.html">créer a compte</a>
+    </div>
+    </div>
+    <canvas class="canva" id="canva"></canvas>
+   
+    <script>
+        var canva=document.getElementById('canva');
+        var ctx=canva.getContext("2d");
+        var tex=["E","s","p","a","c","e","  é","  t"," u"," d"," i","a",'n','t'];
+         var i=0;
+          var c=0;
+          function drawscreen(){
+          for(var j=0;j<=i;j++){
+           ctx.fillStyle="white";
+           ctx.font="30px Arial";
+           ctx.fillText(tex[j],10+c,50);
+           c=c+16;
+        }
+        c=0;
+        i++;
+        }
+         function gameloop(){
+            if(i<14){
+              window.setTimeout(gameloop,200);
+              drawscreen();
+            }
+          }
+          gameloop();
+          var canva2=document.getElementById('canva2');
+          var ctx2=canva2.getContext("2d");
+          var j=0;
+          function draw(){
+            var c=20;
+            for(var i=0;i<5;i++){
+            ctx2.beginPath();
+            if(i==j){
+               ctx2.fillStyle="black";}
+            if(i!=j){
+                ctx2.fillStyle="white";
+            }
+            ctx2.arc(c,40,10,0,2*Math.PI);
+            ctx2.fill();
+            ctx.stroke();
+            c=c+60;
+           }
+           j++;
+           if(j==5){
+            j=0;
+           }
+          }
+          function gameloop1(){
+            window.setTimeout(gameloop1,200);
+            draw();
+          }
+          gameloop1();
+          //draw();
+    </script>
+</body>
+</html>
